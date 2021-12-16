@@ -23,10 +23,15 @@ public WebDriver driver;
 public Properties prop;
 public static ThreadLocal<WebDriver>tlDriver = new ThreadLocal<WebDriver>();
 
-
+/**
+ * This methos is used to initialize driver basis of 
+ * given driver...
+ * @param browser
+ * @return
+ */
 public WebDriver Base_init(String browser) {
 	//browser = prop.getProperty("browser");
-	System.out.println("value of browser is : "+browser);
+	//System.out.println("value of browser is : "+browser);
 	if(browser.equalsIgnoreCase("chrome")) {
 		WebDriverManager.chromedriver().setup();
 		tlDriver.set(new ChromeDriver());
@@ -59,6 +64,10 @@ public Properties Base_properties() {
 	
 	return prop;
 }
+/**
+ * this method is use to take screenshot
+ * it will return path of screenshot
+ */
 public String getScreenshot() {
 	File Srcfile =((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 	String path ="C:\\Users\\praja\\eclipse-workspace\\DemoApp\\screenshots\\"+System.currentTimeMillis()+".png";

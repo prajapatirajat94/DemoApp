@@ -4,7 +4,8 @@
  
  <listeners>
  <listener class-name="demo.listeners.ExtentReportListener" />
- </listeners>  
+ <listener class-name="demo.listeners.TestAllureListener" />
+ </listeners>    
  
   <test  name="LoginTest" >
     <classes>
