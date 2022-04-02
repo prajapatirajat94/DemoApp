@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Login Test" parallel="tests" thread-count="3" >
+ 
+ <listeners>
+ <listener 
+           class-name="demo.listeners.ExtentReportListener" />
+ <listener 
+           class-name="demo.listeners.TestAllureListener" />
+
+ </listeners>    
+ 
+  <test  name="LoginTest -ch-89" >
+  <parameter name="browser" value="chrome"/>
+  <parameter name="browserversion" value="89"/>
+    <classes>
+    <class name="demo.tests.LoginPageTest"/> 
+    </classes>
+  </test> 
+   <test  name="LoginTest -ch-90" >
+  <parameter name="browser" value="chrome"/>
+  <parameter name="browserversion" value="90"/>
+    <classes>
+    <class name="demo.tests.LoginPageTest"/> 
+    </classes>
+  </test> 
+</suite> 

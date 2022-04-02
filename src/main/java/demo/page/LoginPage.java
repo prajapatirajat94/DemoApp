@@ -33,7 +33,7 @@ public String verifyHomePage() {
 	 
 }
 public boolean Accountfrgtpasswordvisible() {
-	return driver.findElement(forgetpassword).isDisplayed();
+	return Util.getElement(forgetpassword).isDisplayed();
 }
 
 }

@@ -3,20 +3,32 @@
 <suite name="Login Test" parallel="tests" thread-count="3" >
  
  <listeners>
- <listener class-name="demo.listeners.ExtentReportListener" />
- <listener class-name="demo.listeners.TestAllureListener" />
+ <listener 
+           class-name="demo.listeners.ExtentReportListener" />
+ <listener 
+           class-name="demo.listeners.TestAllureListener" />
  </listeners>    
  
   <test  name="LoginTest" >
+ <parameter name="browser" value="null"/>
+  <parameter name="browserversion" value=""/>
     <classes>
     <class name="demo.tests.LoginPageTest"/> 
     </classes>
   </test> 
-
+  
   <test  name="AccountpageTest" >
+  <parameter name="browser" value="null"/>
+  <parameter name="browserversion" value=""/>
     <classes>   
     <class name="demo.tests.AccountPageTest"/>
     </classes>
   </test> 
-  
+  <test  name="Productinfopage Test" >
+  <parameter name="browser" value="null"/>
+  <parameter name="browserversion" value=""/>
+    <classes>   
+    <class name="demo.tests.ProductInfoTests"/>
+    </classes>
+  </test> 
 </suite> 

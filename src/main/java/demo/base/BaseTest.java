@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import demo.page.AccountPage;
 import demo.page.LoginPage;
@@ -18,13 +19,18 @@ public class BaseTest {
 	public ProductInfoPage productinfopage;
 	public WebDriver driver;
 	public Properties prop;
-	
+@Parameters({"browser","browserversion"})
 @BeforeTest
-public void Setup() {	
+public void Setup(String browser,String browserVersion) {	
 	basepage = new BasePage();
 	prop =basepage.Base_properties();
-	/*String browser = prop.getProperty("browser");
-	System.out.println(browser);*/
+ 
+	if(browser!=null) {
+	 prop.setProperty("browser", browser);
+	 prop.setProperty("browserversion", browserVersion);
+	 }
+ 
+
 	driver =basepage.Base_init(prop.getProperty("browser"));
     loginpage = new LoginPage(driver);
     driver.get(prop.getProperty("url"));

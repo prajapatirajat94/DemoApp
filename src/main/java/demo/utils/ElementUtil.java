@@ -17,15 +17,23 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import demo.base.BasePage;
 public class ElementUtil {
 	private WebDriver driver;
+	private JavaScriptUtil jsutil;
 
 	public ElementUtil(WebDriver driver) {
 		this.driver = driver;
+		jsutil = new JavaScriptUtil(this.driver);
 	}
 
 	public WebElement getElement(By locator) {
-		return driver.findElement(locator);
+		WebElement element = driver.findElement(locator);
+		if(BasePage.highlight.equals("true")) {
+			jsutil.flash(element);		
+		}
+		return element;
 	}
 
 	public List<WebElement> getElements(By locator) {
@@ -191,7 +199,7 @@ public class ElementUtil {
 	 * @return
 	 */
 	public WebElement doPresenceOfElementLocated(By locator, int timeOut, int intervalTime) {
-		WebDriverWait wait = new WebDriverWait(driver, timeOut, intervalTime);
+		WebDriverWait wait = new WebDriverWait(driver, timeOut,intervalTime);
 		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 
@@ -232,7 +240,7 @@ public class ElementUtil {
 	}
 
 	public boolean waitForURLToBe(String urlValue, int timeOut) {
-		WebDriverWait wait = new WebDriverWait(driver, timeOut);
+		WebDriverWait wait = new WebDriverWait(driver,timeOut);
 		return wait.until(ExpectedConditions.urlToBe(urlValue));
 	}
 

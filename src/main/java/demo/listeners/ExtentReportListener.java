@@ -48,8 +48,8 @@ public class ExtentReportListener extends BasePage  implements ITestListener {
 		ExtentSparkReporter reporter = new ExtentSparkReporter(OUTPUT_FOLDER + FILE_NAME);
 		reporter.config().setReportName("Automation Test Results");
 		extentReports.attachReporter(reporter);
-		extentReports.setSystemInfo("System", "MAC");
-		extentReports.setSystemInfo("Author", "Naveen AutomationLabs");
+		extentReports.setSystemInfo("System", "Window");
+		extentReports.setSystemInfo("Author", "Rajatkumar Prajapati");
 		extentReports.setSystemInfo("Build#", "1.1");
 
 

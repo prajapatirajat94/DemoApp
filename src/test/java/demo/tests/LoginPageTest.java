@@ -25,6 +25,6 @@ public void verifyAccountpageNavigationTest() {
 @Test(priority=1)
 public void Forgetpasswordlink() {
 	Assert.assertTrue(loginpage.Accountfrgtpasswordvisible());
-}
+	}
 	
 }

@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>DemoApp</groupId>
   <artifactId>DemoApp</artifactId>
@@ -8,6 +10,7 @@
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
      <maven.compiler.source>1.8</maven.compiler.source>
      <maven.compiler.target>1.8</maven.compiler.target>
+     <extentreports-version>5.0.8</extentreports-version>
     <aspectj.version>1.9.5</aspectj.version>
 </properties>
   <dependencies>
@@ -26,36 +29,42 @@
     <artifactId>webdrivermanager</artifactId>
     <version>5.0.3</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 <dependency>
     <groupId>commons-io</groupId>
     <artifactId>commons-io</artifactId>
     <version>2.11.0</version>
 </dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi</artifactId>
     <version>5.0.0</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
     <version>5.0.0</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-scratchpad -->
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-scratchpad</artifactId>
     <version>5.0.0</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-excelant -->
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-excelant</artifactId>
     <version>5.0.0</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
 <dependency>
     <groupId>org.apache.poi</groupId>
@@ -69,38 +78,63 @@
     <artifactId>xmlbeans</artifactId>
     <version>5.0.2</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>7.4.0</version>
+    <version>6.14.3</version>
     <scope>test</scope>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 <dependency>
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
-    <version>5.0.9</version>
+    <version>${extentreports-version}</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
 <dependency>
     <groupId>javax.xml.bind</groupId>
     <artifactId>jaxb-api</artifactId>
     <version>2.3.1</version>
 </dependency>
+
 <dependency>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-testng</artifactId>
         <version>2.17.2</version>
   </dependency>
+ <!--  
+ <dependency>
+  <groupId>com.tesults.testng</groupId>
+  <artifactId>tesults-testng</artifactId>
+  <version>1.0.2</version>
+</dependency> 
 
+<dependency>
+  <groupId>org.projectlombok</groupId>
+  <artifactId>lombok</artifactId>
+  <version>1.18.22</version>
+</dependency>
+--> 
   </dependencies>
   <build>
     <plugins>
+    <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.20</version>
+            <version>3.0.0-M5</version>
             <configuration>
               <forkCount>3</forkCount>
               <reuseForks>true</reuseForks>
