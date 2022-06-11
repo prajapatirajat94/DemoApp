@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import demo.base.BasePage;
 import demo.utils.ElementUtil;
 
-public class AccountPage extends BasePage {
+public class AccountPage  {
 private WebDriver driver;
 public ElementUtil Util;
 private By accountsectionheaders = By.cssSelector("div#content h2");
