@@ -14,8 +14,8 @@ public OptionsManager(Properties prop) {
 }
 public ChromeOptions getChromeOptions() {
 	 co = new ChromeOptions();
-	 //co.addArguments("--no-sandbox");
-     //co.addArguments("--disable-dev-shm-usage");
+	 //co.addArguments("--no-sandbox"); // By pass Os security model
+     //co.addArguments("--disable-dev-shm-usage"); //overcome limited resources problem
 	 if(prop.getProperty("headless").trim().equals("true"))co.addArguments("--headless"); 
 	 if(prop.getProperty("incongnito").trim().equals("true"))co.addArguments("--incongnito");
 	 return co;
