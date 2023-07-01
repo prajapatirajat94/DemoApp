@@ -127,8 +127,11 @@ public class BasePage {
 	public Properties Base_properties() {
 		try {
 			prop = new Properties();
-			FileInputStream file = new FileInputStream("/Users/rajatkumarprajapati/eclipse-workspace/Demoapp/src"
-					+ "/main/java/demo/config/config.properties");
+			//for MacBook
+//			FileInputStream file = new FileInputStream("/Users/rajatkumarprajapati/eclipse-workspace/Demoapp/src"
+//					+ "/main/java/demo/config/config.properties");
+			FileInputStream file = new FileInputStream("C:\\Users\\praja\\eclipse-workspace\\DemoApp\\src\\main\\java\\"
+					+ "demo\\config\\config.properties");
 
 			prop.load(file);
 		} catch (IOException e) {
@@ -143,7 +146,11 @@ public class BasePage {
 	 */
 	public String getScreenshot() {
 		File Srcfile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String path = "/Users/rajatkumarprajapati/eclipse-workspace/Demoapp/screenshots/" + System.currentTimeMillis()
+		//for macbook
+//		String path = "/Users/rajatkumarprajapati/eclipse-workspace/Demoapp/screenshots/" + System.currentTimeMillis()
+//		+ ".png";
+		
+		String path = "C:\\Users\\praja\\eclipse-workspace\\DemoApp\\screenshots" + System.currentTimeMillis()
 				+ ".png";
 		try {
 			FileUtils.copyFile(Srcfile, new File(path));
