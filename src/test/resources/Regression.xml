@@ -11,7 +11,7 @@
  
   <test  name="LoginTest" >
  <parameter name="browser" value="chrome"/>
-  
+  <parameter name="browserversion" value="a"/>
     <classes>
     <class name="demo.tests.LoginPageTest"/> 
     </classes>
@@ -19,14 +19,14 @@
   
   <test  name="AccountpageTest" >
   <parameter name="browser" value="chrome"/>
-  
+  <parameter name="browserversion" value="a"/>
     <classes>   
     <class name="demo.tests.AccountPageTest"/>
     </classes>
   </test> 
   <test  name="Productinfopage Test" >
   <parameter name="browser" value="chrome"/>
-  
+  <parameter name="browserversion" value="a"/>
     <classes>   
     <class name="demo.tests.ProductInfoTests"/>
     </classes>
