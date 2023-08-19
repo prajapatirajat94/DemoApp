@@ -19,7 +19,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import demo.utils.OptionsManager;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class BasePage {
 	public WebDriver driver;
@@ -41,20 +41,20 @@ public class BasePage {
 		optionsmanager = new OptionsManager(prop);
 		String browserVersion = prop.getProperty("browserversion").trim();
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
+			
 //Remote
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
-				init_remoteDriver("chrome", browserVersion);
+				init_remoteDriver("chrome");
 			} else {
 //Local
 				tlDriver.set(new ChromeDriver(optionsmanager.getChromeOptions()));
 				// driver = new ChromeDriver();
 			}
 		} else if (browser.equalsIgnoreCase("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
+			
 //Remote		
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
-				init_remoteDriver("firefox", browserVersion);
+				init_remoteDriver("firefox");
 			} else {
 				// driver = new SafariDriver();
 //Local
@@ -73,41 +73,48 @@ public class BasePage {
 	 * 
 	 * @param browser
 	 */
-	private void init_remoteDriver(String browser, String browserVersion) {
+	private void init_remoteDriver(String browser) {
 		if (browser.equals("chrome")) {
+			
+			/* USE BELOW ONLY IF YOU ARE USING 3.*.* VERSION OF SELENIUM	 
 			// Selenium 3.x.x
 			// DesiredCapabilities cap = DesiredCapabilities.chrome();
 
 			// Selenium 4.x.x
+			/* in 4.x.x desiredcap is depricated so we are passing capabilities in chromoption
 			DesiredCapabilities cap = new DesiredCapabilities();
-			// cap.setBrowserName("chrome");
+			
+			 cap.setBrowserName("chrome");
 			/* THIS THING TO SET FOR SELENOID */
+			/*
 			cap.setCapability("browserName", "chrome");
 			cap.setCapability("browserVersion", browserVersion);
 			cap.setCapability("enableVNC", true);
 			cap.setCapability(ChromeOptions.CAPABILITY, optionsmanager.getChromeOptions());
-
+			*/
+			
 			try {
-				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), optionsmanager.getChromeOptions()));
 			} catch (MalformedURLException e) {
-
 				e.printStackTrace();
 			}
+			
+			
 		} else if (browser.equals("firefox")) {
 //Selenium 3.x.x
 			// DesiredCapabilities cap = DesiredCapabilities.firefox();
 
 //Selenium 4.x.x
-			DesiredCapabilities cap = new DesiredCapabilities();
+		//	DesiredCapabilities cap = new DesiredCapabilities();
 			// cap.setBrowserName("firefox");
 			/*
 			 * THIS THING TO SET FOR SELENOID cap.setCapability("browserName", "firefox");
 			 * cap.setCapability("browserVersion", "57.0"); cap.setCapability("enableVNC",
 			 * true);
 			 */
-			cap.setCapability(FirefoxOptions.FIREFOX_OPTIONS, optionsmanager.getFirefoxOptions());
+			//cap.setCapability(FirefoxOptions.FIREFOX_OPTIONS, optionsmanager.getFirefoxOptions());
 			try {
-				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), cap));
+				tlDriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), optionsmanager.getFirefoxOptions()));
 			} catch (MalformedURLException e) {
 
 				e.printStackTrace();

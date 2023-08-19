@@ -10,7 +10,7 @@
  </listeners>    
  
   <test  name="LoginTest" >
- <parameter name="browser" value="null"/>
+ <parameter name="browser" value="chrome"/>
   <parameter name="browserversion" value=" "/>
     <classes>
     <class name="demo.tests.LoginPageTest"/> 
@@ -18,14 +18,14 @@
   </test> 
   
   <test  name="AccountpageTest" >
-  <parameter name="browser" value="null"/>
+  <parameter name="browser" value="chrome"/>
   <parameter name="browserversion" value=" "/>
     <classes>   
     <class name="demo.tests.AccountPageTest"/>
     </classes>
   </test> 
   <test  name="Productinfopage Test" >
-  <parameter name="browser" value="null"/>
+  <parameter name="browser" value="chrome"/>
   <parameter name="browserversion" value=" "/>
     <classes>   
     <class name="demo.tests.ProductInfoTests"/>
