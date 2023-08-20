@@ -137,12 +137,12 @@ public class BasePage {
 			//for MacBook
 //			FileInputStream file = new FileInputStream("/Users/rajatkumarprajapati/eclipse-workspace/Demoapp/src"
 //					+ "/main/java/demo/config/config.properties");
-			FileInputStream file = new FileInputStream("C:\\Users\\praja\\eclipse-workspace\\DemoApp\\src\\main\\java\\"
-					+ "demo\\config\\config.properties");
-
+//			System.out.println(System.getProperty("user.dir")+"\\src\\main\\java\\demo\\config\\config.properties");
+			FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\demo\\config\\config.properties");
+            
 			prop.load(file);
 		} catch (IOException e) {
-			e.getStackTrace();
+			System.out.println(e.getMessage());
 		}
 
 		return prop;
@@ -157,8 +157,7 @@ public class BasePage {
 //		String path = "/Users/rajatkumarprajapati/eclipse-workspace/Demoapp/screenshots/" + System.currentTimeMillis()
 //		+ ".png";
 		
-		String path = "C:\\Users\\praja\\eclipse-workspace\\DemoApp\\screenshots" + System.currentTimeMillis()
-				+ ".png";
+		String path =  System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
 		try {
 			FileUtils.copyFile(Srcfile, new File(path));
 		} catch (IOException e) {
