@@ -12,14 +12,14 @@
  
   <test  name="LoginTest -ch-89" >
   <parameter name="browser" value="chrome"/>
-  <parameter name="browserversion" value="89"/>
+  <parameter name="browserversion" value="79.0"/>
     <classes>
     <class name="demo.tests.LoginPageTest"/> 
     </classes>
   </test> 
    <test  name="LoginTest -ch-90" >
   <parameter name="browser" value="chrome"/>
-  <parameter name="browserversion" value="90"/>
+  <parameter name="browserversion" value="90.0"/>
     <classes>
     <class name="demo.tests.LoginPageTest"/> 
     </classes>
